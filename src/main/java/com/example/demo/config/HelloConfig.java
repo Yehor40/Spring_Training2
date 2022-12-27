@@ -11,10 +11,10 @@ import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class HelloConfig {
-   @Bean
-   public HelloWorldfactory helloWorldfactory(){
-       return new HelloWorldfactory();
-   }
+  // @Bean
+  // public HelloWorldfactory helloWorldfactory(){
+ //      return new HelloWorldfactory();
+  // }
     @Bean
     @Profile("english")
     @Primary
@@ -32,9 +32,9 @@ public class HelloConfig {
     public HelloWorldService hlsd(HelloWorldfactory factory){
         return  factory.createHelloService("de");
     }
-    @Bean
+    //@Bean(name="ukraine")
     //@Profile("ukraine")
-    public HelloWorldService hlsu(HelloWorldfactory factory){
-        return  factory.createHelloService("ukr");
-    }
+    //public HelloWorldService hlsu(HelloWorldfactory factory){
+   //     return  factory.createHelloService("ukr");
+   // }
 }

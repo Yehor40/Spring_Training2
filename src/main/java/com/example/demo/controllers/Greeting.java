@@ -6,10 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
-@Controller
+
 public class Greeting {
     private HelloWorldService hls;
     private HelloWorldService hlsde;
+    private  HelloWorldService hlsu;
+ @Autowired
+ @Qualifier("ukraine")
+    public void setHlsu(HelloWorldService hlsu) {
+        this.hlsu = hlsu;
+    }
+
     @Autowired
     public void setHls(HelloWorldService hls) {
         this.hls = hls;
@@ -23,6 +30,7 @@ public class Greeting {
     public String sayHello(){
         String greet = hls.GetGreeting();
         System.out.println(hlsde.GetGreeting());
+        System.out.println(hlsu.GetGreeting());
         System.out.println(greet);
         return greet;
     }
